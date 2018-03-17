@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas-彩票走势图</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="401px" height="401px">你的浏览器不支持canvas</canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var cxt = canvas.getContext("2d");
+        cxt.lineWidth = 1;
+        cxt.strokeStyle = '#999';
+        cxt.shadowColor = "#fff";
+        cxt.font = '24px Arial';
+        for(var i=0.5; i<430; i+=40){
+            cxt.moveTo(0,i)
+            cxt.lineTo(400,i);
+            cxt.stroke();
+            cxt.moveTo(i,0)
+            cxt.lineTo(i,400);
+            cxt.stroke();
+        }
+        cxt.beginPath();
+        cxt.fillStyle="#f00";
+        cxt.arc(20.25,20.25,18,0,Math.PI*2,true);
+        cxt.closePath();
+        cxt.fill();
+        cxt.fillStyle="#fff";
+        cxt.fillText("1",13,28);
+        cxt.beginPath();
+        cxt.fillStyle="#f00";
+        cxt.arc(220.25,60.25,18,0,Math.PI*2,true);
+        cxt.closePath();
+        cxt.fill();
+        cxt.fillStyle="#fff";
+        cxt.fillText("5",213,68);
+        cxt.moveTo(38.25,20.25)
+        cxt.strokeStyle = '#ff0';
+        cxt.lineTo(202.25,60.25);
+        cxt.stroke();
+    </script>
+</body>
+</html>
